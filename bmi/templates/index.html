@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <p class="subtitle">✨ Discover your wellness journey ✨</p>
+        
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" name="height" step="0.1" placeholder="e.g., 170" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" step="0.1" placeholder="e.g., 65" required>
+            </div>
+            
+            <button type="submit" class="btn">Calculate My BMI</button>
+        </form>
+        
+        {% if error %}
+        <div class="result error">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+        
+        {% if bmi is not none and category %}
+        <div class="result {{ category.lower() }}">
+            <h2>Your Wellness Score</h2>
+            <div class="bmi-value">{{ bmi }}</div>
+            <div class="bmi-category">{{ category }}</div>
+        </div>
+        
+        <div class="info">
+            <h3>Understanding Your BMI</h3>
+            <ul>
+                <li><span class="indicator underweight"></span> Underweight: BMI &lt; 18.5</li>
+                <li><span class="indicator normal"></span> Normal Weight: BMI 18.5 - 24.9</li>
+                <li><span class="indicator overweight"></span> Overweight: BMI 25 - 29.9</li>
+                <li><span class="indicator obese"></span> Obese: BMI ≥ 30</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

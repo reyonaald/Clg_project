@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Palatino', serif;
+    background: linear-gradient(135deg, #e8d5c4 0%, #f5e6d3 50%, #c9dbbe 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Cute decorative elements */
+body::before {
+    content: '🌿';
+    position: fixed;
+    top: 5%;
+    left: 10%;
+    font-size: 3em;
+    opacity: 0.3;
+    animation: float 3s ease-in-out infinite;
+}
+
+body::after {
+    content: '🍃';
+    position: fixed;
+    bottom: 10%;
+    right: 8%;
+    font-size: 3em;
+    opacity: 0.3;
+    animation: float 4s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.container {
+    background: linear-gradient(145deg, #fdfcfb 0%, #f8f5f0 100%);
+    border-radius: 30px;
+    padding: 45px;
+    box-shadow: 
+        0 20px 60px rgba(139, 115, 85, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    max-width: 520px;
+    width: 100%;
+    border: 3px solid #d4c4b0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative leaf corner */
+.container::before {
+    content: '🌱';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+    opacity: 0.4;
+}
+
+.container::after {
+    content: '🌾';
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-size: 2em;
+    opacity: 0.4;
+}
+
+h1 {
+    text-align: center;
+    color: #5d4e37;
+    margin-bottom: 8px;
+    font-size: 2.5em;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(139, 115, 85, 0.1);
+    position: relative;
+}
+
+h1::before {
+    content: '🌸';
+    margin-right: 10px;
+}
+
+h1::after {
+    content: '🌸';
+    margin-left: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7d6e5c;
+    margin-bottom: 35px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    color: #5d4e37;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+
+label::before {
+    content: '🌿 ';
+    font-size: 0.9em;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2.5px solid #d4c4b0;
+    border-radius: 15px;
+    font-size: 1em;
+    background: #fdfcfb;
+    transition: all 0.3s ease;
+    color: #5d4e37;
+    font-family: 'Georgia', serif;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #8fbc8f;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(143, 188, 143, 0.1);
+}
+
+input[type="number"]::placeholder {
+    color: #a89f91;
+    font-style: italic;
+}
+
+.btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #8fbc8f 0%, #7aa37a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(143, 188, 143, 0.3);
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn::before {
+    content: '✨ ';
+}
+
+.btn::after {
+    content: ' ✨';
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(143, 188, 143, 0.4);
+    background: linear-gradient(135deg, #9bcf9b 0%, #8fbc8f 100%);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.result {
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+    border: 3px solid;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.result h2 {
+    margin-bottom: 18px;
+    color: #5d4e37;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.result h2::before {
+    content: '🌼 ';
+}
+
+.bmi-value {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bmi-category {
+    font-size: 1.4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Earthy color indicators for different BMI categories */
+.result.underweight {
+    background: linear-gradient(135deg, #e3f2fd 0%, #d1ebf7 100%);
+    border-color: #7fb3d5;
+}
+
+.result.underweight::before {
+    content: '❄️';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+}
+
+.result.underweight .bmi-value,
+.result.underweight .bmi-category {
+    color: #5a9fd4;
+}
+
+.result.underweight .bmi-category {
+    background: rgba(90, 159, 212, 0.15);
+}
+
+.result.normal {
+    background: linear-gradient(135deg, #e8f5e9 0%, #d4edda 100%);
+    border-color: #8fbc8f;
+}
+
+.result.normal::before {
+    content: '🌿';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+}
+
+.result.normal .bmi-value,
+.result.normal .bmi-category {
+    color: #5d8f5d;
+}
+
+.result.normal .bmi-category {
+    background: rgba(93, 143, 93, 0.15);
+}
+
+.result.overweight {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe5cc 100%);
+    border-color: #d4a574;
+}
+
+.result.overweight::before {
+    content: '🍂';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+}
+
+.result.overweight .bmi-value,
+.result.overweight .bmi-category {
+    color: #b8860b;
+}
+
+.result.overweight .bmi-category {
+    background: rgba(184, 134, 11, 0.15);
+}
+
+.result.obese {
+    background: linear-gradient(135deg, #ffe5e5 0%, #fdd8d8 100%);
+    border-color: #d4a5a5;
+}
+
+.result.obese::before {
+    content: '🌺';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+}
+
+.result.obese .bmi-value,
+.result.obese .bmi-category {
+    color: #b85450;
+}
+
+.result.obese .bmi-category {
+    background: rgba(184, 84, 80, 0.15);
+}
+
+.result.error {
+    background: linear-gradient(135deg, #ffe5e5 0%, #fdd8d8 100%);
+    border-color: #d4a5a5;
+    color: #b85450;
+}
+
+.result.error::before {
+    content: '⚠️';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+}
+
+.info {
+    margin-top: 35px;
+    padding: 25px;
+    background: linear-gradient(135deg, #f9f7f4 0%, #f0ebe3 100%);
+    border-radius: 20px;
+    border: 2px solid #d4c4b0;
+}
+
+.info h3 {
+    color: #5d4e37;
+    margin-bottom: 18px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.info h3::before {
+    content: '📖 ';
+}
+
+.info ul {
+    list-style: none;
+}
+
+.info li {
+    padding: 10px 0;
+    color: #6d5d4b;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    line-height: 1.6;
+}
+
+.indicator {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 2px solid rgba(93, 78, 55, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.indicator.underweight {
+    background: linear-gradient(135deg, #7fb3d5 0%, #5a9fd4 100%);
+}
+
+.indicator.normal {
+    background: linear-gradient(135deg, #8fbc8f 0%, #5d8f5d 100%);
+}
+
+.indicator.overweight {
+    background: linear-gradient(135deg, #d4a574 0%, #b8860b 100%);
+}
+
+.indicator.obese {
+    background: linear-gradient(135deg, #d4a5a5 0%, #b85450 100%);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 25px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .bmi-value {
+        font-size: 2.8em;
+    }
+    
+    .bmi-category {
+        font-size: 1.1em;
+    }
+    
+    body::before,
+    body::after,
+    .container::before,
+    .container::after {
+        font-size: 2em;
+    }
+}
+
+/* Additional cute floating elements */
+@keyframes drift {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translate(10px, -10px) rotate(10deg);
+        opacity: 0.4;
+    }
+}
